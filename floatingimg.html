@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Top and Bottom Split with Moving Image</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column; /* Stack vertically */
+    }
+
+    /* Top part (paragraph) */
+    .top {
+      height: 50%;
+      background: #f0f0f0;
+      padding: 20px;
+      font-size: 18px;
+    }
+
+    /* Bottom part (moving image) */
+    .bottom {
+      height: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      background: #fff;
+      position: relative;
+    }
+    .moving-img {
+      position: absolute;
+      animation: moveLeft 10s linear infinite; /* speed control */
+    }
+
+    /* Animation: right → left */
+    @keyframes moveLeft {
+      from {
+        transform: translateX(100%);
+      }
+      to {
+        transform: translateX(-100%);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top">
+    <p>
+      This is the top half of the page containing a paragraph.  
+      The bottom half contains an image that floats smoothly from right to left.
+    </p>
+  </div>
+
+  <div class="bottom">
+    <img src="c:\Users\keerthi\Pictures\DSC_1234.jpg" width="300" height="300" alt="Floating Image" class="moving-img">
+  </div>
+</body>
+</html>

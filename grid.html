@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        /* Grid Container */
+        .grid-container {
+            display: grid;
+            grid-template-areas:
+                "header header header"
+                "sidebar main main"
+                "footer footer footer";
+            grid-template-columns: 200px 1fr 1fr;
+            grid-template-rows: 80px 1fr 60px;
+            gap: 10px;
+            height: 100vh;
+            padding: 10px;
+        }
+
+        /* Header */
+        .header {
+ grid-area: header;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            grid-area: sidebar;
+            background-color: #555;
+            color: white;
+            padding: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #666;
+            border-radius: 5px;
+        }
+
+        .sidebar li:hover {
+            background-color: #777;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        .main {
+   grid-area: main;
+            background-color: white;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        .footer {
+            grid-area: footer;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-areas:
+                    "header"
+                    "sidebar"
+                    "main"
+                    "footer";
+   grid-template-columns: 1fr;
+                grid-template-rows: 80px auto 1fr 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Dashboard</h1>
+            <span>Welcome, User!</span>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h3>Menu</h3>
+            <ul>
+                <li>Home</li>
+                <li>Profile</li>
+                <li>Settings</li>
+                <li>Reports</li>
+                <li>Logout</li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main">
+            <h2>Main Content Area</h2>
+            
+            <div class="card">
+                <h3>Card 1</h3>
+                <p>This is a content card. CSS Grid makes it easy to create dashboard layouts.</p>
+</div>
+
+            <div class="card">
+                <h3>Card 2</h3>
+                <p>The grid-template-areas property defines the layout structure clearly.</p>
+            </div>
+
+            <div class="card">
+                <h3>Card 3</h3>
+                <p>Responsive design is simple with grid - just redefine the areas for mobile!</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2025 My Dashboard. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
